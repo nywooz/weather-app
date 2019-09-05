@@ -20,7 +20,7 @@ library.add(fab, faCheckSquare, faCoffee, faCalendarDay, faWind, faTint);
 class App extends Component {
   render() {
     return (
-      <div className="App container-fluid">
+      <div>
         <WeatherApp />
       </div>
     );

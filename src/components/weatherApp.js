@@ -79,7 +79,6 @@ class WeatherApp extends Component {
     // SNOW;
     // WIND;
     // FOG;
-
     if (!icon) return "";
     return icon.replace(/-/g, "_").toUpperCase();
   }
@@ -129,45 +128,49 @@ class WeatherApp extends Component {
 
     return (
       <div className="App container-fluid">
-        <div className="location d-flex justify-content-center p-3">
-          <p className="d-flex p-3">
-            <Skycons
-              color="white"
-              icon={this.setIcons(icon)}
-              autoplay={true}
-              height="200"
-              width="200"
-            />
-          </p>
+        <div className="row">
+          <div className="col-2">
+            {icon && (
+              <Skycons
+                color="white"
+                icon={this.setIcons(icon)}
+                autoplay={true}
+                height="200"
+                width="200"
+              />
+            )}
+          </div>
 
-          <div className="container pl-5">
-            <div className="row">
-              <h1> {timezone}</h1>
-            </div>
-            <div className="row">
-              <h2> {convertedTemperature}</h2>
-            </div>
-            <div className="row">
-              <h5> {summary}</h5>
+          <div className="col-5">
+            <div className="container">
+              <div className="row">
+                <h1> {timezone}</h1>
+              </div>
+              <div className="row">
+                <h2> {convertedTemperature}</h2>
+              </div>
+              <div className="row">
+                <h5> {summary}</h5>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="container">
+        <div className="container-fluid pt-4">
           <div className="row">
             <div className="col-1">
               <DateIco />
             </div>
             <div className="col-10"> {date}</div>
           </div>
-          <div clasname="row">
+          <div className="row">
             <div className="col-1">
               <WindIco />
             </div>
             <div className="col-10"> {windSpeed}</div>
           </div>
 
-          <div clasname="row">
+          <div className="row">
             <div className="col-1">
               <Humidity />
             </div>
