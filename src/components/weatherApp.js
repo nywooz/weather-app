@@ -29,12 +29,12 @@ class WeatherApp extends Component {
         const proxy = "https://cors-anywhere.herokuapp.com/";
         const api = `${proxy}https://api.darksky.net/forecast/${this.state.apikey}/${position.coords.longitude},${position.coords.latitude}`;
 
-        fetch(api)
+        fetch(api, { mode: "cors" })
           .then(res => {
             return res.json();
           })
           .then(data => {
-            console.log(data);
+            console.log("Request successful", data);
 
             const {
               apparentTemperature,
@@ -59,6 +59,9 @@ class WeatherApp extends Component {
               time: time,
               windSpeed: windSpeed
             });
+          })
+          .catch(function(error) {
+            console.log("Request failed", error);
           });
       });
     } else {
