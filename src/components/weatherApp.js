@@ -124,7 +124,8 @@ class WeatherApp extends Component {
     } = this.state;
 
     const convertedTemperature = this.changeTempFarenCelcius(temperature);
-    let date = this.getFormattedDate(timestamp);
+    const date = this.getFormattedDate(timestamp);
+    const date2 = this.getFormattedDate(time);
 
     return (
       <div className="App">
@@ -144,8 +145,7 @@ class WeatherApp extends Component {
                   )}
                 </div>
               </div>
-             
-                  <h7> {convertedTemperature}</h7>
+              <h7> {convertedTemperature}</h7>
             </div>
 
             <div className="col-5">
@@ -153,7 +153,7 @@ class WeatherApp extends Component {
                 <div className="row">
                   <h1> {timezone}</h1>
                 </div>
-             
+
                 <div className="row">
                   <h5> {summary}</h5>
                 </div>
@@ -180,7 +180,11 @@ class WeatherApp extends Component {
               </div>
               <div className="col"> {humidity}</div>
             </div>
-          </div>{" "}
+
+            <div className="row">{msg}</div>
+            <div className="row">{apparentTemperature}</div>
+            <div className="row">{date2}</div>
+          </div>
         </div>
       </div>
     );
