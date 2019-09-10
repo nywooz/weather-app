@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import WeatherApp from "./components/weatherApp";
+import WeatherApp from "./components/WeatherApp/index";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -26,5 +26,5 @@ class App extends Component {
     );
   }
 }
-  
+
 export default App;
