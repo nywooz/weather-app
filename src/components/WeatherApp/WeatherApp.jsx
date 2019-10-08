@@ -2,6 +2,11 @@ import React, { Component } from "react";
 
 import Skycons from "react-skycons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import dotenv from "dotenv";
+const IPGeolocationAPI = require("ip-geolocation-api-javascript-sdk");
+
+dotenv.config();
+const GEOKEY = process.env.REACT_APP_GEO_LANDING_HOMEPAGE;
 
 export const DateIco = () => <FontAwesomeIcon icon="calendar-day" />;
 export const WindIco = () => <FontAwesomeIcon icon="wind" />;
@@ -20,10 +25,30 @@ class WeatherApp extends Component {
   };
 
   componentDidMount() {
-    this.getData();
+    this.getLocation();
+    // this.getData()
   }
 
-  getData() {
+  getLocation() {
+    const ipgeolocation = fetch(
+      "https://api.ipgeolocation.io/ipgeo?apiKey=" + GEOKEY,
+      {
+        mode: "cors"
+      }
+    )
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        // console.log("Request geolocation successful", data);
+        this.getData(data);
+      })
+      .catch(function(error) {
+        console.log("Request geolocation failed", error);
+      });
+  }
+
+  getData(locationData) {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
         const proxy = "https://cors-anywhere.herokuapp.com/";
@@ -34,7 +59,7 @@ class WeatherApp extends Component {
             return res.json();
           })
           .then(data => {
-            console.log("Request successful", data);
+            console.log("Request darksky successful", data);
 
             const {
               apparentTemperature,
@@ -47,6 +72,8 @@ class WeatherApp extends Component {
             } = data.currently;
 
             this.setState({
+              city: locationData.city,
+              country_name: locationData.country_name,
               timezone: data.timezone,
               long: position.coords.longitude,
               lat: position.coords.latitude,
@@ -61,7 +88,7 @@ class WeatherApp extends Component {
             });
           })
           .catch(function(error) {
-            console.log("Request failed", error);
+            console.log("Request darksky failed", error);
           });
       });
     } else {
@@ -122,7 +149,9 @@ class WeatherApp extends Component {
       humidity,
       icon,
       summary,
-      windSpeed
+      windSpeed,
+      country_name,
+      city
     } = this.state;
 
     const convertedTemperature = this.changeTempFarenCelcius(temperature);
@@ -157,14 +186,12 @@ class WeatherApp extends Component {
           </div>
 
           <div className="row pb-2">
-                <div className="col-2">Feels</div>
-                <div className="col"> {convertedApparentTemperature}</div>
-              </div>
+            <div className="col-2">Feels</div>
+            <div className="col"> {convertedApparentTemperature}</div>
+          </div>
 
           <div className="row align-items-center pt-4">
             <div className="container-fluid">
-
-
               <div className="row pb-2">
                 <div className="col-1">
                   <DateIco />
@@ -183,6 +210,16 @@ class WeatherApp extends Component {
                   <Humidity />
                 </div>
                 <div className="col"> {humidity}</div>
+              </div>
+
+              <div className="row pb-2">
+                <div className="col-1"></div>
+                <div className="col"> {city}</div>
+              </div>
+
+              <div className="row pb-2">
+                <div className="col-1"></div>
+                <div className="col"> {country_name}</div>
               </div>
 
               <div className="row pb-2">
