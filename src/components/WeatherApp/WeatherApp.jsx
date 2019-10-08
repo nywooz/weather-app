@@ -141,7 +141,6 @@ class WeatherApp extends Component {
 
   render() {
     const {
-      timezone,
       timestamp,
       msg,
       temperature,
@@ -180,7 +179,8 @@ class WeatherApp extends Component {
             </div>
 
             <div className="col-9">
-              <h2> {timezone}</h2>
+              <h2> {city}</h2>
+              <p> {country_name}</p>
               <p> {summary}</p>
             </div>
           </div>
@@ -212,15 +212,7 @@ class WeatherApp extends Component {
                 <div className="col"> {humidity}</div>
               </div>
 
-              <div className="row pb-2">
-                <div className="col-1"></div>
-                <div className="col"> {city}</div>
-              </div>
 
-              <div className="row pb-2">
-                <div className="col-1"></div>
-                <div className="col"> {country_name}</div>
-              </div>
 
               <div className="row pb-2">
                 <div className="col-1"></div>
