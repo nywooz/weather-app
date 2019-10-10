@@ -16,6 +16,7 @@ export const Humidity = () => <FontAwesomeIcon icon="tint" />;
 
 class WeatherApp extends Component {
   state = {
+    url: "https://api.ipgeolocation.io/ipgeo?apiKey=" + GEOKEY,
     temperatureMetric: "celcius",
     long: "",
     lat: "",
@@ -25,27 +26,21 @@ class WeatherApp extends Component {
   };
 
   componentDidMount() {
-    this.getLocation();
+    this.getLocation(this.state.url);
     // this.getData()
   }
 
-  getLocation() {
-     fetch(
-      "https://api.ipgeolocation.io/ipgeo?apiKey=" + GEOKEY,
-      {
-        mode: "cors"
-      }
-    )
-      .then(res => {
-        return res.json();
-      })
-      .then(data => {
-        // console.log("Request geolocation successful", data);
-        this.getData(data);
-      })
-      .catch(function(error) {
-        console.log("Request geolocation failed", error);
-      });
+  getLocation(url) {
+    const that = this;
+
+    // async await
+    let fechDataFromApi = async api => {
+      let response = await fetch(api);
+      let result = await response.json();
+      return result;
+    };
+
+    fechDataFromApi(url).then(result => that.getData(result));
   }
 
   getData(locationData) {
@@ -211,8 +206,6 @@ class WeatherApp extends Component {
                 </div>
                 <div className="col"> {humidity}</div>
               </div>
-
-
 
               <div className="row pb-2">
                 <div className="col-1"></div>
