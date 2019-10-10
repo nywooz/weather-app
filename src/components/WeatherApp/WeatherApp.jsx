@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Skycons from "react-skycons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import dotenv from "dotenv";
-const IPGeolocationAPI = require("ip-geolocation-api-javascript-sdk");
+// const IPGeolocationAPI = require("ip-geolocation-api-javascript-sdk");
 
 dotenv.config();
 const GEOKEY = process.env.REACT_APP_GEO_LANDING_HOMEPAGE;
@@ -30,7 +30,7 @@ class WeatherApp extends Component {
   }
 
   getLocation() {
-    const ipgeolocation = fetch(
+     fetch(
       "https://api.ipgeolocation.io/ipgeo?apiKey=" + GEOKEY,
       {
         mode: "cors"
