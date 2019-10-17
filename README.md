@@ -30,22 +30,25 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 
-### Deploy to GitHub pages
-# 1. install the gh-pages package from npm. This package would help us to create a gh-pagesbranch on Github and also serve our bundled react files on the branch.
+## Deploy to GitHub pages
+1. Install the gh-pages package from npm. This package would help us to create a gh-pagesbranch on Github and also serve our bundled react files on the branch.
 `npm install gh-pages`
 
-# 2. Locate the package.json file in your root directory, add this line of code to your script: "homepage": "link-to-your-repository", and save. In my own case it would look like this:
+2. Locate the package.json file in your root directory, add this line of code to your script: "homepage": "link-to-your-repository", and save. In my own case it would look like this:
+```json
 {
   "name": "noor",
   "version": "0.1.0",
   "private": true,
   "homepage": "http://nywooz.github.io/weather-app"
-  ...
+   ...
   "scripts": {    
    "start": "react-scripts start",
    "predeploy": "yarn run build",
    "deploy": "gh-pages -d build",
    ...
 }
- # predeploy command helps bundle the react app locally
- # on the otherside,deploy command fires up the bundled file and pushes your built file to the gh-pagesbranch on your remote repository.
+```
+
+ ### predeploy command helps bundle the react app locally
+ ### on the otherside,deploy command fires up the bundled file and pushes your built file to the gh-pagesbranch on your remote repository.
