@@ -38,7 +38,12 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 1. Install the gh-pages package from npm. This package would help us to create a gh-pagesbranch on Github and also serve our bundled react files on the branch.
 `npm install gh-pages`
 
-2. Locate the package.json file in your root directory, add this line of code to your script: "homepage": "link-to-your-repository", and save. In my own case it would look like this:
+2. Go in your Github repo
+navigate to settings
+scroll to GitHub Pages
+set Source to "gh-pages branch"
+
+3. Locate the package.json file in your root directory, add this line of code to your script: "homepage": "link-to-your-repository", and save. In my own case it would look like this:
 ```json
 {
   "name": "noor",
