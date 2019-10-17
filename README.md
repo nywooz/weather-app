@@ -6,6 +6,10 @@ published at https://nywooz.github.io/weather-app/
 ## Available Scripts
 In the project directory, you can run:
 
+## Installing
+### `npm i`
+
+## run project
 ### `npm start`
 
 Runs the app in the development mode.<br>
@@ -50,5 +54,5 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 }
 ```
 
- ### predeploy command helps bundle the react app locally
- ### on the otherside,deploy command fires up the bundled file and pushes your built file to the gh-pagesbranch on your remote repository.
+ ### **predeploy** command helps bundle the react app locally
+ ### **deploy** command fires up the bundled file and pushes your built file to the gh-pagesbranch on your remote repository.
