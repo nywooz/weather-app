@@ -4,7 +4,7 @@ This project focus on using ES6 Fetch API and using Async/Await and hence does n
 
 Location is based on a user IP address API, Geolocation API and Weather is using `https://darksky.net/dev`. Since it is a free version API, repetitive browser refresh might cause to app to stop working due to the requested limit(currently set at max. 53).
 
-There is currently a API bug with `https://darksky.net/dev` that the temperature and city are returning wrong objects. Note that this app has been built following the API documentation .
+There is currently a API bug with `https://darksky.net/dev` that the temperature and city are returning wrong objects("Indian/Mahe"). Note that this app has been built following the API documentation .
 
 ## DEMO
 published at https://nywooz.github.io/weather-app/
