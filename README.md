@@ -1,4 +1,10 @@
-This project was bootstrapped with [Create React App], which is a weather forecast app.
+This project was bootstrapped with [Create React App], which is a weather forecast app. I have added bootstrap to add responsible layout based on screen resolution. 
+
+This project focus on using ES6 Fetch API and using Async/Await and hence does not have additional browser support. Works flawless on Chrome.
+
+Location is based on a user IP address API, Geolocation API and Weather is using `https://darksky.net/dev`. Since it is a free version API, repetitive browser refresh might cause to app to stop working due to the requested limit(currently set at max. 53).
+
+There is currently a API bug with `https://darksky.net/dev` that the temperature and city are returning wrong objects. Note that this app has been built following the API documentation .
 
 ## DEMO
 published at https://nywooz.github.io/weather-app/
