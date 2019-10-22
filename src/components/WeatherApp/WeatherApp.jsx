@@ -155,62 +155,63 @@ class WeatherApp extends Component {
     const date = this.getFormattedDate(timestamp);
 
     return (
-      <div className="App">
-        <div className="App container-fluid m-0 p-2">
-          <div className="row align-items-center">
-            <div className="col-3">
-              <div className="content">
-                {icon && (
-                  <Skycons
-                    color="white"
-                    icon={this.setIcons(icon)}
-                    autoplay={true}
-                    height="200"
-                    width="200"
-                  />
-                )}
-              </div>
-              <h5 className="text-center"> {convertedTemperature}</h5>
-            </div>
-
-            <div className="col-9">
-              <h2> {city}</h2>
-              <p> {country_name}</p>
-              <p> {summary}</p>
+      <div className="App container-fluid m-0">
+        <div className="row align-items-center">
+          <div className="col-12 col-sm-6 col-md-3">
+            <div className="content mx-auto">
+              {icon && (
+                <Skycons
+                  color="white"
+                  icon={this.setIcons(icon)}
+                  autoplay={true}
+                  height="200"
+                  width="200"
+                />
+              )}
             </div>
           </div>
 
-          <div className="row pb-2">
-            <div className="col-2">Feels</div>
-            <div className="col"> {convertedApparentTemperature}</div>
+          <div className="col-12 col-sm-6 col-md-9">
+            <h4> {convertedTemperature}</h4>
+            <h2> {city}</h2>
+            <p> {country_name}</p>
+            <p> {summary}</p>
           </div>
+        </div>
 
-          <div className="row align-items-center pt-4">
-            <div className="container-fluid">
-              <div className="row pb-2">
-                <div className="col-1">
-                  <DateIco />
-                </div>
-                <div className="col-10"> {date}</div>
+        <div className="row align-items-center pt-4">
+          <div className="container-fluid">
+            <div className="row pb-2">
+              <div className="col-2">
+                <p>Feels</p>
               </div>
-              <div className="row pb-2">
-                <div className="col-1">
-                  <WindIco />
-                </div>
-                <div className="col-10"> {windSpeed}</div>
-              </div>
+              <div className="col-10"> {convertedApparentTemperature}</div>
+            </div>
 
-              <div className="row pb-2">
-                <div className="col-1">
-                  <Humidity />
-                </div>
-                <div className="col"> {humidity}</div>
+            <div className="row pb-2">
+              <div className="col-2">
+                <DateIco />
               </div>
+              <div className="col-10"> {date}</div>
+            </div>
 
-              <div className="row pb-2">
-                <div className="col-1"></div>
-                <div className="col"> {msg}</div>
+            <div className="row pb-2">
+              <div className="col-2">
+                <WindIco />
               </div>
+              <div className="col-10"> {windSpeed}</div>
+            </div>
+
+            <div className="row pb-2">
+              <div className="col-2">
+                <Humidity />
+              </div>
+              <div className="col"> {humidity}</div>
+            </div>
+
+            <div className="row pb-2">
+              <div className="col-2"></div>
+              <div className="col"> {msg}</div>
             </div>
           </div>
         </div>
